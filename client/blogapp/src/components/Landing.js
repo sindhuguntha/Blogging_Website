@@ -8,10 +8,10 @@ const Landing = () => (
         </h1>
         <main>
             This is a blogging platform for all your blogging needs!
-            <br /><br/>
+            <br />
             Want to read some awesome blogs? We've got you covered!
-            <br /> <br/>Want to write an awesome blog post?
-            <br /><br/> Rest assured, because we've got you covered once again!
+            <br /> Want to write an awesome blog post?
+            <br /> Rest assured, because we've got you covered once again!
         </main>
         <hr className="my-4 gold-hr" />
         <p>So, click below and dive right in!</p>

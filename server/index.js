@@ -2,25 +2,22 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const path = require("path");
-import dotenv from 'dotenv';
-//require("dotenv").config();
+const dotenv = require("dotenv");
+require("dotenv").config();
 
 //config Express App
 dotenv.config();
 
 
 const app = express();
-app.use(cors());
+
 app.use(express.json());
+app.use(cors());
 
 
 
 //config PORT
 const PORT = process.env.PORT || 5000;
-//const CONNECTION_URL = 'mongodb+srv://sindhuguntha:Sindhu123@cluster0.pj4qy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
-
-//config MongoDB
-
 mongoose.connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -32,7 +29,7 @@ connection.once("open", () =>
 );
 
 //config routes
-const postsRouter = require("./routes/blog");
+const postsRouter = require("./routes/posts");
 const authRouter = require("./routes/auth");
 
 app.use("/auth", authRouter);
@@ -40,3 +37,4 @@ app.use("/auth", authRouter);
 app.use("/server/posts", postsRouter);
 
 app.listen(PORT, () => console.log(`Server is running at PORT ${PORT}!`));
+

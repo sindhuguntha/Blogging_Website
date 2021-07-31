@@ -8,7 +8,7 @@ const About = () => {
             </h1>
             <main>
                 <p>
-                    This is an installable Blogging app that lets a user delve
+                    This is a Blogging app that lets a user delve
                     into a topic of choice and write a blog post, or read one of
                     the already uploaded Blog posts.
                 </p>
@@ -30,12 +30,7 @@ const About = () => {
                     Your comment will always have a unique icon accompanying it.
                 </p>
                 <hr className="gold-hr" />
-                <p>
-                    If you ever feel the need to provide criticism or drop a
-                    suggestion, or if you just want to say "Nice job", feel free
-                    to contact me using the links in the footer
-                    <span className="full-stop">.</span>
-                </p>
+                
             </main>
         </div>
     );

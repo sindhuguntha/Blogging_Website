@@ -4,10 +4,10 @@ import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import alert css
 import axios from "axios";
 import PropTypes from "prop-types";
-//const CommentList = lazy(() => import("./CommentList"));
+const CommentList = lazy(() => import("./CommentList"));
 
 // The same post component is used in the Postslist component and to SHOW the individual post component
-const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+const baseURL = "http://localhost:5000";
 const RenderLoader = () => (
     <div className="spinner-container">
         <div className="spinner-border" role="status">
@@ -213,9 +213,9 @@ class Post extends Component {
                             </div>
                         </div>
                         {/* Render the comments below the post */}
-                        {/* <Suspense fallback={RenderLoader()}>
+                        <Suspense fallback={RenderLoader()}>
                             <CommentList post={this.state.post} />
-                        </Suspense> */}
+                        </Suspense>
                     </div>
                 </div>
             );

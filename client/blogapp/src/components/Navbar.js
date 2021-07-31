@@ -11,24 +11,20 @@ class Navbar extends Component {
 
     // Update navbar component when user logs in, to display "Login" or "Logout"
     componentDidMount() {
-        console.log("executed");
         if (sessionStorage.getItem("isLoggedIn") === "true") {
-            console.log("yes");
             this.setState((prevState) => {
-                console.log(prevState.isLoggedIn);
                 if (!prevState.isLoggedIn) {
                     return { isLoggedIn: true };
                 }
             });
         }
-        // if (sessionStorage.getItem("isLoggedIn") === "false") {
-        //     console.log("no");
-        //     this.setState((prevState) => {
-        //         if (prevState.isLoggedIn) {
-        //             return { isLoggedIn: false };
-        //         }
-        //     });
-        // }
+        if (sessionStorage.getItem("isLoggedIn") === "false") {
+            this.setState((prevState) => {
+                if (prevState.isLoggedIn) {
+                    return { isLoggedIn: false };
+                }
+            });
+        }
     }
 
     // Collapse navabr after clicked on mobile screens
@@ -116,12 +112,7 @@ class Navbar extends Component {
                                         window.sessionStorage.removeItem(
                                             "username"
                                         );
-                                        console.log("after:")
-                                        console.log(this.state.isLoggedIn);
-                                        window.location.reload();
                                         window.location = "/posts";
-                                        
-                                        
                                     }}
                                 >
                                     Logout

@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import CKEditor from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
-import sanitizeHtml from "sanitize-html";
 
-const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+
+const baseURL = "http://localhost:5000";
 
 class EditPost extends Component {
     constructor(props) {
@@ -60,7 +60,7 @@ class EditPost extends Component {
         // Display a spinner until the post is submitted
         document.querySelector(".spinner-container").style.display = "flexbox";
 
-        const sanitizedData = sanitizeHtml(this.state.body);
+        const sanitizedData = (this.state.body);
         this.setState({ body: sanitizedData });
 
         const editedPost = {
@@ -88,66 +88,68 @@ class EditPost extends Component {
         if (this.state.isLoggedIn) {
             return (
                 <div>
-                    {/* A spinner to indicate loading until new post is submitted */}
-                    <div
-                        className="spinner-container"
-                        style={{ display: "none" }}
-                    >
-                        <div className="spinner-border" role="status">
-                            <span className="sr-only">Loading...</span>
-                        </div>
-                    </div>
-                    <div className="edit-post">
-                        <h1>
-                            Edit Blog Post<span className="full-stop">.</span>
-                        </h1>
-                        <form onSubmit={this.handleSubmit}>
-                            <div className="form-group">
-                                <label className="edit-title">Title: </label>
-                                <input
-                                    className="form-control edit-title"
-                                    type="text"
-                                    name="title"
-                                    value={this.state.title}
-                                    onChange={this.handleChange}
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <CKEditor
-                                    editor={ClassicEditor}
-                                    data={this.state.body}
-                                    onChange={this.handleEditorChange}
-                                    config={{
-                                        toolbar: [
-                                            "Heading",
-                                            "|",
-                                            "Bold",
-                                            "Italic",
-                                            "Link",
-                                            "NumberedList",
-                                            "BulletedList",
-                                            "|",
-                                            "BlockQuote",
-                                            "MediaEmbed",
-                                            "Undo",
-                                            "Redo",
-                                        ],
-                                    }}
-                                />
-                            </div>
-                            <br />
-                            <div className="form-group">
-                                <input
-                                    type="submit"
-                                    value="Submit Post"
-                                    className="btn btn-outline-primary btn-lg"
-                                />
-                            </div>
-                        </form>
+                
+                <div
+                    className="spinner-container"
+                    style={{ display: "none" }}
+                >
+                    <div className="spinner-border" role="status">
+                        <span className="sr-only">Loading...</span>
                     </div>
                 </div>
+                <div className="edit-post">
+                    <h1>
+                        Edit Blog Post<span className="full-stop">.</span>
+                    </h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <div className="form-group">
+                            <label className="edit-title">Title: </label>
+                            <input
+                                className="form-control edit-title"
+                                type="text"
+                                name="title"
+                                value={this.state.title}
+                                onChange={this.handleChange}
+                                required
+                            />
+                        </div>
+
+                        <div>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={this.state.body}
+                                onChange={this.handleEditorChange}
+                                config={{
+                                    toolbar: [
+                                        "Heading",
+                                        "|",
+                                        "Bold",
+                                        "Italic",
+                                        "Link",
+                                        "NumberedList",
+                                        "BulletedList",
+                                        "|",
+                                        "BlockQuote",
+                                        "MediaEmbed",
+                                        "Undo",
+                                        "Redo",
+                                    ]
+                                }}
+                            />
+                        </div>
+                        <br />
+                        <div className="form-group">
+                            <input
+                                type="submit"
+                                value="Submit Post"
+                                className="btn btn-outline-primary btn-lg"
+                            />
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
             );
         } else {
             return (

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
 import axios from "axios";
-import CKEditor from "@ckeditor/ckeditor5-react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import sanitizeHtml from "sanitize-html";
 
 const baseURL = "http://localhost:5000";
-
 class CreatePosts extends Component {
     constructor() {
         super();
@@ -81,7 +80,7 @@ class CreatePosts extends Component {
         if (this.state.isLoggedIn) {
             return (
                 <div>
-                
+
                     <div
                         className="spinner-container"
                         style={{ display: "none" }}
@@ -166,6 +165,7 @@ class CreatePosts extends Component {
                 </div>
             );
         }
+
     }
 }
 

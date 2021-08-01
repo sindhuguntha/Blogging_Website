@@ -2,7 +2,7 @@ import React, { Component, lazy, Suspense } from "react";
 import axios from "axios";
 const Post = lazy(() => import("./Post"));
 
-const baseURL = process.env.REACT_APP_BASEURL || "http://localhost:5000";
+const baseURL = "http://localhost:5000";
 const renderLoader = () => (
     <div className="spinner-container">
         <div className="spinner-border" role="status">

@@ -68,7 +68,7 @@ class Login extends React.Component {
             <div className="container">
                 <div className="login">
                     <h5>
-                        Login with your social account
+                        Login with your Google account
                         <span className="full-stop">.</span>
                     </h5>
                     <hr className="gold-hr" />
